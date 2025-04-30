@@ -1,0 +1,270 @@
+/* Reset Básico e Estilos Globais */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* === VARIÁVEIS CSS PARA TEMAS === */
+:root {
+    --bg-color: #f4f7f6;
+    --section-bg-color: #ffffff;
+    --text-color: #333;
+    --heading-color: #2c3e50;
+    --primary-color: #3498db;
+    --primary-hover: #2980b9;
+    --secondary-color: #16a085;
+    --secondary-hover: #117a65;
+    --accent-color-1: #f39c12;
+    --accent-color-1-hover: #e67e22;
+    --accent-color-2: #8e44ad;
+    --accent-color-2-hover: #7d3c98;
+    --danger-color: #e74c3c;
+    --danger-hover: #c0392b;
+    --border-color: #ccc;
+    --input-bg-color: #fff;
+    --list-item-bg: #ecf0f1;
+    --list-item-hover: #e0e6e8;
+    --list-item-border: var(--primary-color);
+    --details-bg: #f8f9f9;
+    --details-border: #e1e5e8;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --button-text-color: white;
+    --recall-warning-bg: #fffbe6;
+    --recall-warning-border: #ffe58f;
+    --recall-warning-text: #d46b08;
+    --feedback-success-bg: #dff0d8;
+    --feedback-success-text: #3c763d;
+    --feedback-success-border: #d6e9c6;
+    --feedback-error-bg: #f2dede;
+    --feedback-error-text: #a94442;
+    --feedback-error-border: #ebccd1;
+    --feedback-loading-bg: #d9edf7;
+    --feedback-loading-text: #31708f;
+    --feedback-loading-border: #bce8f1;
+    --placeholder-color: #95a5a6;
+}
+
+/* === TEMA ESCURO === */
+body.dark-mode {
+    --bg-color: #2c3e50;
+    --section-bg-color: #34495e;
+    --text-color: #ecf0f1;
+    --heading-color: #e0e6e8;
+    --primary-color: #5dade2;
+    --primary-hover: #85c1e9;
+    --secondary-color: #48c9b0;
+    --secondary-hover: #76d7c4;
+    --accent-color-1: #f5b041;
+    --accent-color-1-hover: #f8c471;
+    --accent-color-2: #af7ac5;
+    --accent-color-2-hover: #c39bd3;
+    --danger-color: #f1948a;
+    --danger-hover: #ec7063;
+    --border-color: #566573;
+    --input-bg-color: #465a6d;
+    --list-item-bg: #4e5d6c;
+    --list-item-hover: #5d6d7e;
+    --list-item-border: var(--primary-color);
+    --details-bg: #425364;
+    --details-border: #566573;
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --button-text-color: #2c3e50;
+    --recall-warning-bg: #4d432c;
+    --recall-warning-border: #7c6b47;
+    --recall-warning-text: #ffda87;
+    --feedback-success-bg: #2a4b30;
+    --feedback-success-text: #a6e1a6;
+    --feedback-success-border: #4f7c55;
+    --feedback-error-bg: #5a2a2a;
+    --feedback-error-text: #f1b0ab;
+    --feedback-error-border: #8b4d48;
+    --feedback-loading-bg: #2c4e63;
+    --feedback-loading-text: #a5d8f3;
+    --feedback-loading-border: #4a7c99;
+    --placeholder-color: #7f8c8d;
+}
+
+/* Aplicações de Variáveis */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 20px;
+    background-color: var(--bg-color); color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+h1, h2, h3 { color: var(--heading-color); margin-bottom: 15px; }
+h1 { text-align: center; margin-bottom: 30px; color: var(--secondary-color); }
+hr { border: 0; height: 1px; background-image: linear-gradient(to right, transparent, var(--heading-color), transparent); margin: 30px 0; }
+section {
+    background: var(--section-bg-color); padding: 25px; margin-bottom: 25px; border-radius: 8px;
+    box-shadow: 0 4px 8px var(--shadow-color); transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Formulário */
+#cadastro-veiculo form div { margin-bottom: 15px; }
+#cadastro-veiculo label { display: block; margin-bottom: 5px; font-weight: bold; color: color-mix(in srgb, var(--text-color) 80%, transparent); }
+#cadastro-veiculo input[type="text"],
+#cadastro-veiculo input[type="datetime-local"] {
+    width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;
+    background-color: var(--input-bg-color); color: var(--text-color);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+#cadastro-veiculo input::placeholder { color: var(--placeholder-color); opacity: 1; }
+#cadastro-veiculo input:focus { border-color: var(--secondary-color); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--secondary-color) 20%, transparent); }
+body.dark-mode input[type="datetime-local"] { color-scheme: dark; }
+
+/* Botões */
+button {
+    background-color: var(--primary-color); color: var(--button-text-color); padding: 10px 18px; border: none;
+    border-radius: 4px; cursor: pointer; font-size: 1rem; font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    margin-right: 5px; vertical-align: middle; /* Alinha melhor com inputs */
+}
+button:hover { background-color: var(--primary-hover); transform: translateY(-1px); box-shadow: 0 2px 4px var(--shadow-color); }
+button:active { transform: translateY(1px) scale(0.98); box-shadow: inset 0 1px 3px var(--shadow-color); }
+#form-cadastro button[type="submit"] { background-color: var(--secondary-color); }
+#form-cadastro button[type="submit"]:hover { background-color: var(--secondary-hover); }
+button.remover-btn { background-color: var(--danger-color); }
+button.remover-btn:hover { background-color: var(--danger-hover); }
+button.detalhes-extras-btn { background-color: var(--accent-color-1); font-size: 0.9em; padding: 6px 12px; }
+button.detalhes-extras-btn:hover { background-color: var(--accent-color-1-hover); }
+#verificar-clima-btn { background-color: var(--accent-color-2); margin-left: 10px; }
+#verificar-clima-btn:hover { background-color: var(--accent-color-2-hover); }
+body.dark-mode button.remover-btn,
+body.dark-mode button.detalhes-extras-btn { color: #fff; }
+button:disabled, button:disabled:hover {
+    background-color: color-mix(in srgb, var(--border-color) 80%, var(--bg-color)) !important;
+    color: color-mix(in srgb, var(--text-color) 50%, var(--bg-color)) !important;
+    cursor: not-allowed; opacity: 0.6; transform: none; box-shadow: none;
+}
+
+/* Lista de Veículos */
+#veiculos-list { list-style: none; padding: 0; }
+#veiculos-list li {
+    background: var(--list-item-bg); padding: 15px; margin-bottom: 10px; border-radius: 5px;
+    border-left: 5px solid var(--list-item-border); display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; opacity: 1; transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+#veiculos-list li:hover { background-color: var(--list-item-hover); transform: translateX(5px); }
+#veiculos-list li span { flex-grow: 1; margin-right: 15px; word-break: break-word; }
+#veiculos-list li .actions { flex-shrink: 0; display: flex; gap: 5px; }
+#veiculos-list li.empty-message {
+    text-align: center; color: color-mix(in srgb, var(--text-color) 60%, transparent);
+    font-style: italic; border-left-color: var(--border-color); justify-content: center;
+}
+
+/* === ANIMAÇÕES === */
+@keyframes fadeIn { /* Animação mais evidente */
+    from { opacity: 0; transform: translateX(-30px) scale(0.8); background-color: lightblue; }
+    to { opacity: 1; transform: translateX(0) scale(1); background-color: var(--list-item-bg); }
+}
+@keyframes fadeOut { /* Animação mais evidente */
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.8) translateX(30px); background-color: lightcoral; }
+}
+@keyframes highlightNew { /* Destaque mais evidente */
+    0%, 100% { background-color: var(--list-item-bg); transform: scale(1); }
+    50% { background-color: color-mix(in srgb, var(--secondary-color) 40%, var(--list-item-bg)); transform: scale(1.02); }
+}
+@keyframes pulse { /* Animação para botão carregando */
+    from { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary-color) 40%, transparent); }
+    to { transform: scale(1.02); box-shadow: 0 0 0 5px transparent; }
+}
+@keyframes pulse-accent1 {
+    from { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-color-1) 40%, transparent); }
+    to { transform: scale(1.02); box-shadow: 0 0 0 5px transparent; }
+}
+@keyframes pulse-accent2 {
+    from { transform: scale(1); box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-color-2) 40%, transparent); }
+    to { transform: scale(1.02); box-shadow: 0 0 0 5px transparent; }
+}
+
+/* Aplicação das Animações */
+#veiculos-list li.fade-in { animation: fadeIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+#veiculos-list li.fade-out { animation: fadeOut 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards; }
+#veiculos-list li.newly-added { animation: highlightNew 1.8s ease-out forwards; border-left-color: var(--secondary-color) !important; }
+button.loading-click { opacity: 0.7; animation: pulse 0.8s infinite alternate; }
+#verificar-clima-btn.loading-click { animation-name: pulse-accent2; }
+button.detalhes-extras-btn.loading-click { animation-name: pulse-accent1; }
+
+
+/* Containers de Detalhes e Previsão */
+.detalhes-container {
+    margin-top: 20px; padding: 20px; padding-bottom: 50px; background-color: var(--details-bg);
+    border: 1px solid var(--details-border); border-radius: 5px; min-height: 100px; position: relative;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.detalhes-container.loading { background-color: color-mix(in srgb, var(--primary-color) 10%, var(--details-bg)); }
+.detalhes-container h3 { margin-top: 0; color: var(--heading-color); border-bottom: 1px solid color-mix(in srgb, var(--border-color) 50%, transparent); padding-bottom: 8px; }
+.detalhes-container p { margin-bottom: 8px; }
+.detalhes-container p strong { color: color-mix(in srgb, var(--text-color) 85%, transparent); }
+.detalhes-container a { color: var(--primary-color); text-decoration: none; }
+.detalhes-container a:hover { text-decoration: underline; }
+
+/* Destaque Recall */
+.recall-warning {
+    background-color: var(--recall-warning-bg); border: 1px solid var(--recall-warning-border);
+    color: var(--recall-warning-text) !important; padding: 5px 10px; border-radius: 4px;
+    margin-top: 5px; display: inline-block; font-weight: bold;
+}
+.recall-warning strong { color: inherit !important; }
+
+/* Textos Loading/Erro */
+.loading-text, .error-text { display: flex; align-items: center; justify-content: center; min-height: 50px; text-align: center; }
+.loading-text { color: var(--primary-color); font-style: italic; }
+.loading-text::before { content: '⏳'; margin-right: 8px; font-size: 1.2em; }
+.error-text { color: var(--danger-color); font-weight: bold; }
+.error-text::before { content: '⚠️ '; margin-right: 8px; font-size: 1.2em; }
+
+/* Feedback Geral */
+.feedback-message {
+    padding: 12px 15px; margin-bottom: 15px; border-radius: 4px; font-weight: 500; text-align: center;
+    opacity: 0; transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; min-height: 1.5em;
+    border: 1px solid transparent; transform: translateY(-10px); /* Começa um pouco acima */
+}
+.feedback-message.show { opacity: 1; transform: translateY(0); }
+.feedback-message.success { background-color: var(--feedback-success-bg); color: var(--feedback-success-text); border-color: var(--feedback-success-border); }
+.feedback-message.error { background-color: var(--feedback-error-bg); color: var(--feedback-error-text); border-color: var(--feedback-error-border); }
+.feedback-message.loading { background-color: var(--feedback-loading-bg); color: var(--feedback-loading-text); border-color: var(--feedback-loading-border); }
+
+/* Input Group (Planejador) */
+#planejador-viagem .input-group { display: flex; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
+#planejador-viagem label { font-weight: bold; color: color-mix(in srgb, var(--text-color) 80%, transparent); flex-shrink: 0; }
+#planejador-viagem input[type="text"] {
+    flex-grow: 1; padding: 10px; border: 1px solid var(--border-color); border-radius: 4px; font-size: 1rem;
+    background-color: var(--input-bg-color); color: var(--text-color); min-width: 150px;
+}
+#planejador-viagem input::placeholder { color: var(--placeholder-color); opacity: 1; }
+#planejador-viagem input:focus { border-color: var(--accent-color-2); outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color-2) 20%, transparent); }
+
+/* Botões Pequenos */
+.clear-btn, .unit-btn, .theme-switcher button {
+    font-size: 0.8em; padding: 5px 10px; background-color: color-mix(in srgb, var(--text-color) 15%, transparent);
+    color: color-mix(in srgb, var(--text-color) 80%, transparent); border: 1px solid color-mix(in srgb, var(--text-color) 25%, transparent);
+    opacity: 0.8; transition: opacity 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.clear-btn:hover, .unit-btn:hover, .theme-switcher button:hover {
+    opacity: 1; background-color: color-mix(in srgb, var(--text-color) 25%, transparent);
+    color: var(--text-color); border-color: color-mix(in srgb, var(--text-color) 40%, transparent);
+}
+.clear-btn { position: absolute; bottom: 10px; right: 10px; }
+.unit-btn { width: 45px; text-align: center; padding: 5px 0; }
+.theme-switcher { position: fixed; top: 15px; right: 15px; z-index: 1000; }
+.theme-switcher button {
+    border-radius: 50%; width: 40px; height: 40px; font-size: 1.3em; padding: 0;
+    display: flex; align-items: center; justify-content: center; line-height: 1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #planejador-viagem .input-group { gap: 8px; }
+    #verificar-clima-btn { margin-left: 0; }
+}
+@media (max-width: 600px) {
+    body { margin: 10px; } section { padding: 15px; } h1 { font-size: 1.8em; } h2 { font-size: 1.3em; }
+    #veiculos-list li { flex-direction: column; align-items: flex-start; padding: 12px; gap: 8px; }
+    #veiculos-list li span { margin-right: 0; }
+    #veiculos-list li .actions { width: 100%; justify-content: flex-end; }
+    #planejador-viagem .input-group { flex-direction: column; align-items: stretch; gap: 10px; }
+    #planejador-viagem label { margin-bottom: 0; }
+    #verificar-clima-btn { width: 100%; }
+    .unit-btn { width: 100%; }
+    .clear-btn { position: static; display: block; width: 100%; margin-top: 15px; }
+    .theme-switcher { top: 10px; right: 10px; }
+    .theme-switcher button { width: 35px; height: 35px; font-size: 1.1em; }
+}

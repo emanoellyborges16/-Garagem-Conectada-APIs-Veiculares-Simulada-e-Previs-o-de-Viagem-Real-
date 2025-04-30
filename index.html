@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garagem Inteligente Unificada v2</title>
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Botão para Trocar Tema (Exemplo no topo) -->
+    <div class="theme-switcher">
+        <button id="theme-toggle-btn" title="Alternar tema claro/escuro">🌙</button>
+    </div>
+
+    <h1>Garagem Inteligente Unificada</h1>
+
+    <!-- Seção de Cadastro -->
+    <section id="cadastro-veiculo">
+        <h2>Cadastrar Novo Veículo</h2>
+        <!-- Div para exibir mensagens de feedback (sucesso/erro) -->
+        <div id="form-feedback" class="feedback-message" aria-live="polite"></div>
+        <form id="form-cadastro">
+            <div>
+                <label for="modelo">Modelo:</label>
+                <input type="text" id="modelo" required>
+            </div>
+            <div>
+                <label for="placa">Placa:</label>
+                <input type="text" id="placa" required pattern="[A-Z]{3}[0-9][A-Z0-9][0-9]{2}" placeholder="AAA0A00 ou AAA0000" title="Formato AAA0A00 (Mercosul) ou AAA0000 (Antigo)">
+            </div>
+            <div>
+                <label for="hora-entrada">Hora de Entrada:</label>
+                <input type="datetime-local" id="hora-entrada" required>
+            </div>
+            <div>
+                <button type="submit">Adicionar Veículo</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- Seção da Lista de Veículos -->
+    <section id="lista-veiculos">
+        <h2>Veículos na Garagem</h2>
+        <!-- Lista onde os veículos serão inseridos -->
+        <ul id="veiculos-list">
+            <!-- Conteúdo gerado pelo JS -->
+            <li class="empty-message">Nenhum veículo na garagem.</li>
+        </ul>
+        <!-- Área para exibir detalhes extras da API simulada -->
+        <div id="detalhes-extras-veiculo" class="detalhes-container">
+             <h3>Detalhes Extras do Veículo</h3>
+             <div id="detalhes-extras-conteudo">Selecione "Detalhes Extras" em um veículo acima.</div>
+             <!-- Botão de limpar (display gerenciado por JS/CSS) -->
+             <button id="clear-details-btn" class="clear-btn" title="Limpar detalhes exibidos" style="display: none;">Limpar Detalhes</button>
+        </div>
+    </section>
+
+    <hr> <!-- Linha Separadora -->
+
+    <!-- Seção do Planejador de Viagem (API Real) -->
+    <section id="planejador-viagem">
+        <h2>Planejar Viagem (Previsão do Tempo)</h2>
+        <div class="input-group">
+            <label for="destino-viagem">Cidade de Destino:</label>
+            <input type="text" id="destino-viagem" placeholder="Ex: Rio de Janeiro">
+            <button id="verificar-clima-btn" title="Buscar previsão do tempo atual para a cidade">Verificar Clima</button>
+            <!-- Botão para trocar unidade de temperatura -->
+            <button id="unit-toggle-btn" class="unit-btn" title="Alternar entre Celsius e Fahrenheit">°C</button>
+        </div>
+        <!-- Área para exibir resultados da API de previsão do tempo -->
+        <div id="previsao-tempo-resultado" class="detalhes-container">
+            <h3>Previsão no Destino</h3>
+            <div id="previsao-tempo-conteudo">Digite uma cidade e clique em "Verificar Clima".</div>
+             <!-- Botão para limpar previsão (display gerenciado por JS/CSS) -->
+             <button id="clear-weather-btn" class="clear-btn" title="Limpar previsão exibida" style="display: none;">Limpar Previsão</button>
+        </div>
+    </section>
+
+    <!-- Script JS carregado como módulo no final -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
